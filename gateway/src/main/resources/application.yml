@@ -8,8 +8,8 @@ spring:
     gateway:
       discovery:
         locator:
+          lowerCaseServiceId: true
           enabled: true
-          url-expression: "'http://'+serviceId"
     kubernetes:
       enabled: false
 
@@ -17,21 +17,3 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
-
-logging:
-  level:
-    org.springframework.cloud.gateway: TRACE
-    org.springframework.cloud.loadbalancer: TRACE
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
-  endpoint:
-    health:
-      enabled: true
-    restart:
-      enabled: true
-    info:
-      enabled: true
